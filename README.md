@@ -1,6 +1,6 @@
 # assetfinder
 
-Find domains and subdomains potentially related to a given domain.
+Find domains and subdomains potentially related to a given domain. This is a fork of [Tomnomnom's assetfinder](https://github.com/tomnomnom/assetfinder/)
 
 
 ## Install
@@ -17,7 +17,16 @@ To make it easier to execute you can put the binary in your `$PATH`.
 ## Usage
 
 ```
-assetfinder [--subs-only] <domain>
+assetfinder [options] <domain>
+```
+
+These are the available options:
+
+```
+
+--subs-only        # Only includes subdomains of the given domain
+
+--external-only    # Doesn't include any subdomain of the given domain
 ```
 
 ## Sources

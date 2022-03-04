@@ -16,7 +16,9 @@ import (
 
 func main() {
 	var subsOnly bool
+	var externalOnly bool
 	flag.BoolVar(&subsOnly, "subs-only", false, "Only include subdomains of search domain")
+	flag.BoolVar(&externalOnly, "external-only", false, "Doesn't include any subdomain of the search domain")
 	flag.Parse()
 
 	var domains io.Reader
@@ -67,7 +69,7 @@ func main() {
 
 				for _, n := range names {
 					n = cleanDomain(n)
-					if subsOnly && !strings.HasSuffix(n, domain) {
+					if (subsOnly && !strings.HasSuffix(n, domain)) || (externalOnly && strings.HasSuffix(n, domain)) {
 						continue
 					}
 					out <- n
